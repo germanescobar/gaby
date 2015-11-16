@@ -1,3 +1,4 @@
+$icon-font-path: "fonts/bootstrap/";
 @import 'bootstrap';
 
 html, body, .ng-scope, .challenges { height: 100%; }
@@ -8,23 +9,33 @@ body {
 .challenges {
   background: url('../images/bg-frozen.jpeg') no-repeat top center;
   background-size: cover;
+  z-index: -2;
+
+  .album-menu {
+    display: inline-block;
+    color: #7CB8EB;
+    font-size: 28px;
+    padding: 20px;
+    opacity: 0.9;
+  }
 
   .question {
     color: white;
     font-size: 82px;
     padding-top: 80px;
-    padding-left: 90px;
+    padding-left: 40px;
+    opacity: 0.8;
 
     @media (min-width: $screen-sm-min) {
       font-size: 102px;
       padding-top: 150px;
-      padding-left: 150px;
+      padding-left: 80px;
     }
 
     @media (min-width: $screen-md-min) {
       font-size: 132px;
       padding-top: 150px;
-      padding-left: 190px;
+      padding-left: 130px;
     }
   }
 
@@ -37,7 +48,7 @@ body {
     position: absolute;
     top: 0;
     width: 100%;
-    z-index:1;
+    z-index: -1;
     -webkit-animation: snow 10s linear infinite;
     -moz-animation: snow 10s linear infinite;
     -ms-animation: snow 10s linear infinite;
@@ -65,10 +76,10 @@ body {
   }
 
   .question {
-    opacity: 1;
+    opacity: 0.8;
   }
 
-  .question.ng-hide-add, .question.ng-hide-remove {
+  .question.ng-hide-remove {
     transition: all 0.5s linear;
   }
 
@@ -106,10 +117,61 @@ body {
   }
 }
 
+#win-sticker-modal {
+  h2 {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .sticker { text-align: center; }
+
+  .action {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+  }
+}
+
 .album {
   background: url('../images/bg-frozen-2.jpg') no-repeat top center;
+  background-size: cover;
   padding-top: 80px;
   height: initial;
+
+  header {
+    position: relative;
+
+    .back a {
+      display: inline-block;
+      position: absolute;
+      top: -20px;
+      left: 0;
+      color: #165792;
+      font-size: 38px;
+      font-weight: bold;
+      line-height: 50px;
+      width: 70px;
+      height: 70px;
+      text-align: center;
+      text-decoration: none;
+      padding: 5px;
+      border: 7px solid #165792;
+      border-radius: 50%;
+      opacity: 0.8;
+
+      .glyphicon { line-height: 0}
+    }
+
+    h1 {
+      color: #E8FBFF;
+      text-shadow: -2px 2px #004857;
+      font-size: 62px;
+      font-weight: bold;
+      text-align: center;
+      margin-top: -30px;
+      margin-bottom: 70px;
+    }
+  }
 
   .sticker {
     background: #CCE7EB;

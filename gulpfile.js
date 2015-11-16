@@ -4,7 +4,7 @@ var gulp = require('gulp')
     browserify = require('browserify')
     source = require('vinyl-source-stream');
 
-gulp.task('webserver', ['browserify', 'views', 'images', 'sass'], function() {
+gulp.task('webserver', ['browserify', 'views', 'images', 'audio', 'sass'], function() {
   connect.server({
     root: 'dist',
     livereload: true
@@ -25,13 +25,20 @@ gulp.task('images', function() {
 
   gulp.src('./app/images/stickers/*')
     .pipe(gulp.dest('dist/images/stickers/'));
+
+  gulp.src('./node_modules/bootstrap-sass/assets/fonts/**/*')
+    .pipe(gulp.dest('dist/css/fonts/'));
+});
+
+gulp.task('audio', function() {
+  gulp.src('./app/audio/*')
+    .pipe(gulp.dest('dist/audio/'));
 });
 
 gulp.task('sass', function () {
   return sass('./app/sass/style.scss', {
     loadPath: ['./node_modules/bootstrap-sass/assets/stylesheets/']
-  })
-    .on('error', sass.logError)
+  }).on('error', sass.logError)
     .pipe(gulp.dest('./dist/css/'));
 });
 
@@ -48,6 +55,7 @@ gulp.task('watch', function () {
   gulp.watch(['./app/js/*.js'], ['browserify']);
   gulp.watch(['./app/sass/*.scss'], ['sass']);
   gulp.watch(['./app/images/*'], ['images']);
+  gulp.watch(['./app/audio/*'], ['audio']);
 });
  
 gulp.task('default', ['webserver', 'watch']);
