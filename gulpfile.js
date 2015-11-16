@@ -54,7 +54,7 @@ gulp.task('watch', function () {
   gulp.watch(['./app/views/*.html'], ['views']);
   gulp.watch(['./app/js/*.js'], ['browserify']);
   gulp.watch(['./app/sass/*.scss'], ['sass']);
-  gulp.watch(['./app/images/*'], ['images']);
+  gulp.watch(['./app/images/**/*'], ['images']);
   gulp.watch(['./app/audio/*'], ['audio']);
 });
  
