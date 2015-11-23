@@ -2,14 +2,13 @@
   <div class="container">
     <a href="#album" class="album-menu"><span class="glyphicon glyphicon-star-empty"></span><img src="images/album-menu.png" alt="Mi album"></a>
     <div class="question" ng-hide="correct" ng-class="{shake: incorrect}">
-      {{ currentQuestion.data[0] }}  +  {{ currentQuestion.data[1] }}  =  {{ value }}
+      {{ currentQuestion.data[0] }}  +  {{ currentQuestion.data[1] }}  =  <input type="number" answer autofocus>
     </div>
   </div>
 
   <div class="olaf" ng-show="correct">
-    <img src="images/olaf-happy.png" alt="Olaf Happy">
+    <img src="images/olaf.png" alt="Olaf Happy">
   </div>
-  <div id="snow"></div>
 </div>
 
 <div class="modal fade" id="win-sticker-modal">
